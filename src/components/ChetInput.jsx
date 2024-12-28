@@ -18,13 +18,13 @@ const ChetInput = () => {
     }
   };
   return (
-    <div className="w-full px-2 md:px-4 py-2 md:py-3 shadow-md h-16 md:h-20 flex justify-center items-center">
+    <div className="w-full px-2 md:px-4 py-2 md:py-3 shadow-md h-16 md:h-20 flex justify-center items-center relative bottom-0 border bg-gray-400">
       {selectedUser?._id && (
-        <div className="border-2 w-full rounded-lg relative flex items-center shadow-lg">
+        <div className="w-full rounded-lg relative flex items-center shadow-lg">
           <input
             value={message}
             type="text"
-            placeholder="Enter your message"
+            placeholder="Type your message. . . "
             className="py-2 md:py-4 px-2 md:px-4 w-full text-sm text-md rounded-lg pr-10 shadow-md"
             onChange={(e) => setMessage(e.target.value)}
             onKeyDown={handleKeyDown}

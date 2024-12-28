@@ -40,7 +40,7 @@ const Message = ({ messageData }) => {
             <div className="chat-bubble bg-gray-100 text-xs md:text-sm p-[5px] md:p-2 rounded-md shadow">
               {messageData.message}
             </div>
-            <span className="text-[8px] md:text-xs text-gray-500 mt-1 block">
+            <span className="text-[8px] md:text-[10px] text-gray-500 mt-1 block">
               {" "}
               {formattedTime}
             </span>
@@ -52,7 +52,7 @@ const Message = ({ messageData }) => {
             <div className="chat-bubble bg-gray-100 text-xs md:text-sm p-[5px] md:p-2 rounded-md shadow">
               {messageData?.message}
             </div>
-            <span className="text-[8px] md:text-xs text-gray-500 mt-1 block text-right">
+            <span className="text-[8px] md:text-[10px] text-gray-500 mt-1 block text-right">
               {formattedTime}
             </span>
           </div>

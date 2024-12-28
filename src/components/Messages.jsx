@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Message from "./Message";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchMessages, setMessages } from "../redux/actions";
@@ -12,18 +12,21 @@ const Messages = () => {
   const { messages, loading } = useSelector((state) => state.messageSlice);
   const socket = useSelector((state) => state.socketSlice.socket);
 
-  //   useEffect(() => {
-  //     socket?.on("newMessage", (newMessage) => {
-  //       dispatch(setMessages([...messages, newMessage]));
-  //     });
-  //     return () => socket?.off("newMessage");
-  //   }, [setMessages, messages, socket]);
+  const messagesEndRef = useRef(null); // Ref for the messages container
 
+  // Fetch messages for the selected user
   useEffect(() => {
     if (selectedUser?._id) {
       dispatch(fetchMessages(selectedUser._id));
     }
   }, [selectedUser, dispatch]);
+
+  // Scroll to the bottom when messages change
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollTop = messagesEndRef.current.scrollHeight;
+    }
+  }, [messages]);
 
   return (
     <>
@@ -33,7 +36,10 @@ const Messages = () => {
           <div className="w-6 h-6 border-2 border-t-0 border-green-800 rounded-full animate-spin"></div>
         </div>
       ) : (
-        <div className="border flex-1 overflow-auto px-2 md:px-4">
+        <div
+          className="border flex-1 overflow-auto px-2 md:px-4 pb-20"
+          ref={messagesEndRef} // Attach ref to the scrollable container
+        >
           <div className="mb-6 p-rounded-lg text-center text-slate-400 py-4">
             <h2 className="font-semibold text-sm md:text-lg mb-2">
               🔒 End-to-End Encrypted Chat
@@ -45,7 +51,6 @@ const Messages = () => {
               messages.
             </p>
           </div>
-          {/* Check if messages is an array and has at least one item */}
           {Array.isArray(messages) && messages.length > 0 ? (
             messages.map((message) => (
               <Message key={message._id} messageData={message} />
