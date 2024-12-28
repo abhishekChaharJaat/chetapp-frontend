@@ -37,7 +37,7 @@ const Message = ({ messageData }) => {
             </div>
           </div>
           <div>
-            <div className="chat-bubble bg-gray-100 text-xs md:text-sm p-[5px] md:p-2 rounded-md shadow">
+            <div className="chat-bubble bg-gray-100 text-sm p-[5px] md:p-2 rounded-md shadow">
               {messageData.message}
             </div>
             <span className="text-[8px] md:text-[10px] text-gray-500 mt-1 block">
@@ -49,7 +49,7 @@ const Message = ({ messageData }) => {
       ) : (
         <div className="chat chat-end flex items-start space-x-1 md:space-x-2 justify-end">
           <div className="">
-            <div className="chat-bubble bg-gray-100 text-xs md:text-sm p-[5px] md:p-2 rounded-md shadow">
+            <div className="chat-bubble bg-gray-100 text-sm p-[5px] md:p-2 rounded-md shadow">
               {messageData?.message}
             </div>
             <span className="text-[8px] md:text-[10px] text-gray-500 mt-1 block text-right">
@@ -57,7 +57,7 @@ const Message = ({ messageData }) => {
             </span>
           </div>
           <div className="chat-image avatar">
-            <div className="w-6 h-6 md:w-8 md:h-8  rounded-full">
+            <div className="w-7 h-7 md:w-8 md:h-8  rounded-full">
               <img
                 className="rounded-full"
                 alt="Chat Avatar"

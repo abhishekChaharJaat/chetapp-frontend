@@ -21,8 +21,8 @@ const MessageBox = ({ isVisble, setIsVisible, screenSize }) => {
         screenSize.width < 650 && isVisble ? "hidden" : "block"
       }`}
     >
-      <div className="flex flex-col w-full h-full">
-        <div className="flex h-[50px] md:h-[70px] items-center space-x-4 bg-gray-300 py-4 px-6 shadow-md">
+      <div className="flex flex-col w-full h-full relative">
+        <div className="flex w-full h-[50px] md:h-[70px] items-center space-x-4 bg-gray-300 py-4 px-6 shadow-md fixed absolute top-0">
           <IoArrowBack
             className="text-lg"
             onClick={() => setIsVisible(!isVisble)}
