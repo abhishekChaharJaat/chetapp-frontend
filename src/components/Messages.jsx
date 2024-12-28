@@ -37,7 +37,7 @@ const Messages = () => {
         </div>
       ) : (
         <div
-          className="border flex-1 overflow-auto px-2 md:px-4 pb-20"
+          className="border flex-1 overflow-auto px-2 md:px-4"
           ref={messagesEndRef} // Attach ref to the scrollable container
         >
           <div className="mb-6 p-rounded-lg text-center text-slate-400 py-4">
