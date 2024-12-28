@@ -1,0 +1,27 @@
+.root {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+* {
+  font-family: "poppins";
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  /* Customize the scrollbar width */
+  width: 1px;
+}
+::-webkit-scrollbar-track {
+  /* Customize the scrollbar track */
+  background-color: black;
+}
+::-webkit-scrollbar-thumb {
+  /* Customize the scrollbar thumb */
+  border-radius: 10px;
+  background-color: white;
+}
