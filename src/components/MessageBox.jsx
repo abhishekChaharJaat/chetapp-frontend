@@ -1,18 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import profile from "../images/profile.webp";
 import Messages from "./Messages";
 import { useSelector } from "react-redux";
 import ChetInput from "./ChetInput";
+import { IoArrowBack } from "react-icons/io5";
 
-const MessageBox = () => {
+const MessageBox = ({ isVisble, setIsVisible, screenSize }) => {
   const selecteduser = useSelector((state) => state.userSlice.selectedUser);
   const onlineUsers = useSelector((state) => state.userSlice.onlineUsers);
   const isOnline = onlineUsers.includes(selecteduser?._id);
 
+  useEffect(() => {
+    if (screenSize.width < 650) {
+      setIsVisible(!isVisble);
+    }
+  }, [screenSize]);
   return (
-    <div className="pt-[60px] md:pt-[72px] h-screen w-full">
+    <div
+      className={`pt-[60px] md:pt-[72px] h-screen w-full ${
+        screenSize.width < 650 && isVisble ? "hidden" : "block"
+      }`}
+    >
       <div className="flex flex-col w-full h-full">
-        <div className="flex h-[50px] md:h-[70px] items-center space-x-2 md:space-x-4 bg-gray-300 py-4 px-6 shadow-md">
+        <div className="flex h-[50px] md:h-[70px] items-center space-x-4 bg-gray-300 py-4 px-6 shadow-md">
+          <IoArrowBack
+            className="text-lg"
+            onClick={() => setIsVisible(!isVisble)}
+          />
           <img
             src={selecteduser?.profilePhoto || profile}
             alt="profile"

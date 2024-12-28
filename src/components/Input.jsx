@@ -19,7 +19,7 @@ const Input = (props) => {
         name={name}
         value={value}
         onChange={onChange}
-        className={`mt-1 w-full px-3 py-1.5 border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500 ${className}`}
+        className={`mt-1 w-full px-3 py-1.5 border border-gray-300 rounded-md tex-xs md:text-sm focus:ring-blue-500 focus:border-blue-500 ${className}`}
         placeholder={placeholder}
       />
     </div>
