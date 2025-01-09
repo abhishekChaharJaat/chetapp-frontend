@@ -25,7 +25,7 @@ const ChetInput = () => {
             value={message}
             type="text"
             placeholder="Type your message. . . "
-            className="py-2 md:py-4 px-2 md:px-4 w-full text-xs md:text-sm text-md rounded-lg pr-10 shadow-md"
+            className="py-2 md:py-4 px-2 md:px-4 w-full text-[12px] md:text-sm text-md rounded-lg pr-10 shadow-md"
             onChange={(e) => setMessage(e.target.value)}
             onKeyDown={handleKeyDown}
             disabled={!selectedUser}
